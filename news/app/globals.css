@@ -25,3 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@layer components {
+  .navLink {
+    @apply hover:underline;
+  }
+}
