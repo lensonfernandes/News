@@ -1,18 +1,17 @@
-
-
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
 type Props = {
-    category: string;
-    isActive: boolean;
+  category: string;
+  isActive: boolean;
+};
 
-}
-
-const NavLink = ({category, isActive} : Props) => {
+const NavLink = ({ category, isActive }: Props) => {
   return (
-    <Link href="/"> </Link>
-  )
-}
+    <Link href={`/news/${category}`} className={`navLink ${isActive && "underline decoration-indigo-400 underline-offset-4 font-bold text-lg"}`} >
+      {category}
+    </Link>
+  );
+};
 
-export default NavLink
+export default NavLink;

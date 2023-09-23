@@ -1,5 +1,5 @@
 type Category  = 
- "business";
+ "business" | "entertainment" | "general" | "health" | "science" | "sports" | "technology";
 
 type Pagination = {
     

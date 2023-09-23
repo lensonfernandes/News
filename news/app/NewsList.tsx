@@ -10,7 +10,7 @@ const NewsList = () => {
   return (
     <div className='grid '>
         news.data.map(article => (
-            <Article key={Article.title} article={article} />
+            {/* <Article key={Article.title} article={article} /> */}
         ))
     </div>
   )
