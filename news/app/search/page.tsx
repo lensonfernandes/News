@@ -1,4 +1,7 @@
 import React from 'react'
+import NewsList from '../NewsList'
+import fetchNews from '@/lib/fetchNews';
+
 
 type Props = {
     searchParams?: {term: string};
@@ -6,13 +9,18 @@ type Props = {
 
 const SearchPage = async ({searchParams}: Props) => {
 
-    // const news: NewsResponse = await fetchNews(
-    //     "general",
-    //     searchParams?.term,
-    //     true
-    // )
+    const news: NewsResponse = await fetchNews(
+        "general",
+        searchParams?.term,
+        true
+    )
   return (
-    <div>SearchPage</div>
+    <div>
+      <h1 className="headerTitle">Search Results for: 
+        {searchParams?.term}
+      </h1>
+      <NewsList news={news}/>
+    </div>
   )
 }
 
