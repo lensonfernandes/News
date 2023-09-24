@@ -1,69 +1,79 @@
 import { gql } from "graphql-request";
+import sortNewsByImage from "./sortNewsByImage";
 
-const fetchNews = async(
-    category?: Category | string,
-    keywords?:string,
-    isDynamic?:boolean, 
+const fetchNews = async (
+  category?: Category | string,
+  keywords?: string,
+  isDynamic?: boolean
 ) => {
-    //GraphQL query
-    const GET_Query = gql`
-    query MyQuery  ($access_key : String!
-        $categories: String!
-        $keywords: String){ 
-        myQuery(
-            access_key: $access_key
-            categories: $categories
-            countries:"gb"
-            sort:"published_desc"
-            keywords: $keywords
-        ) {
-          data {
-            author
-            category
-            country
-            description
-            image
-            language
-            published_at
-            source
-            url
-            title
-          }
-          pagination {
-            count
-            limit
-            offset
-            total
-          }
+  //GraphQL query
+  const GET_Query = gql`
+    query MyQuery(
+      $access_key: String!
+      $categories: String!
+      $keywords: String
+    ) {
+      myQuery(
+        access_key: $access_key
+        categories: $categories
+        countries: "gb"
+        sort: "published_desc"
+        keywords: $keywords
+      ) {
+        data {
+          author
+          category
+          country
+          description
+          image
+          language
+          published_at
+          source
+          url
+          title
         }
-      }`;
+        pagination {
+          count
+          limit
+          offset
+          total
+        }
+      }
+    }
+  `;
 
-    //fetch function with next cach
-const res = await  fetch(, {
-    method: 'POST',
-    cache: isDynamic ? "no-cache" : "default",
-    next: isDynamic ? {revalidate: 0} : {revalidate: 20},
-    headers:{
+  //fetch function with next cache
+  const res = await fetch(
+    "https://ipaumirim.stepzen.net/api/altered-frog/__graphql",
+    {
+      method: "POST",
+      cache: isDynamic ? "no-cache" : "default",
+      next: isDynamic ? { revalidate: 0 } : { revalidate: 20 },
+      headers: {
         "Content-Type": "application/json",
         Authorization: `Apikey ${process.env.STEPZEN_API_KEY}`,
-    },
-    body: JSON.stringify({
-        query,
-        variables:{
-            access_key: process.env.MEDIASTACK_
-        }
-    })
+      },
+      body: JSON.stringify({
+        query: GET_Query,
+        variables: {
+          access_key: process.env.MEDIASTACK_API_KEY,
+          categories: category,
+          keywords: keywords,
+        },
+      }),
+    }
+  );
 
-})
+  console.log("LOADING NEW DATA  >>>>>>", category, keywords);
 
-    // sort function
+  const newsResponse = await res.json();
 
-    const news = sortNewsByImage();
+  // sort function
 
-    return res
-
-
-}
+  const news = sortNewsByImage(newsResponse.data.myQuery);
+console.log("news>>>>>>>>>>", news)
+  return news;
+};
 
 export default fetchNews;
 
