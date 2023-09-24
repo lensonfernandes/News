@@ -9,13 +9,15 @@ const ReadMoreButton = ({article}: Props) => {
     const router = useRouter();
 
     const handleClick = () => {
-        const queryString = Object.entries(article).map()
+        const queryString = Object.entries(article).map(([key,value] )=> `${key}=${value}`).join('&');
+        const url = `/article?${queryString}`;
+        console.log(url);
+        router.push(url);
     }
+    
   return (
-    <div>
-
-    </div>
+   <button onClick={handleClick} className='bg-blue-500 text-white p-2 rounded-md'>Read More</button>
   )
 }
 
-export default ReadMoreButton
+export default ReadMoreButton;
