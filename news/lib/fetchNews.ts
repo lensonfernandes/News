@@ -64,14 +64,12 @@ const fetchNews = async (
     }
   );
 
-  console.log("LOADING NEW DATA  >>>>>>", category, keywords);
-
   const newsResponse = await res.json();
 
   // sort function
 
   const news = sortNewsByImage(newsResponse.data.myQuery);
-console.log("news>>>>>>>>>>", news)
+
   return news;
 };
 
