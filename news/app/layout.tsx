@@ -20,7 +20,7 @@ export default function RootLayout({
     <html>
       <Providers>
         <body
-          className={"bg-gray-100 dark:bg-zinc-900 transition-all duration-700"}
+          className={"bg-gray-100 text-zinc-900 dark:bg-zinc-900  dark:text-gray-100 transition-all duration-700"}
         >
           <Header />
           <div className="w-100  flex justify-center">{children}</div>

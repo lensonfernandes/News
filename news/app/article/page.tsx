@@ -16,10 +16,8 @@ const ArticlePage = ({ searchParams }: Props) => {
   const article: Article = searchParams;
   return (
     <div>
-      <article 
-      //className="bg-slate-100 dark:bg-slate-800 flex flex-col rounded-lg shadow-sm hover:scale-105 hover:shadow-lg hover:bg-slate-200 transition-all duration-200 ease-out"
-      >
-        <section className="flex flex-col lg:flex-row pb-24 px-0 lg:px-10">
+      <article className="h-screen flex justify-center items-start ">
+        <section className="flex flex-col lg:flex-row pb-24 px-0 lg:px-10 mt-20">
           {article.image && (
             <img
               className="h-50 max-w-md mx-auto md:max-w-lg lg:max-w-xl object-cover rounded-lg shadow-md"
@@ -37,7 +35,7 @@ const ArticlePage = ({ searchParams }: Props) => {
               <h2 className="font-bold pl-4">Source: {article.source}</h2>
               <p className="pl-4">
                 {/* <LiveTimestamp time= */}
-                {article.published_at} 
+                {article.published_at}
                 {/* // /> */}
               </p>
             </div>

@@ -17,11 +17,11 @@ const SearchBox = () => {
   return (
     <form
       onSubmit={handleSearch}
-      className="max-w-6xl mx-auto flex justify-between items-center px-5"
+      className="max-w-6xl mx-auto flex justify-between items-center px-5 pt-20"
     >
       <input
         type="text"
-        className="w-full h-14 rounded-sm placeholder-gray-500 text-gray-500 outline-none flex-1 dark:text-orange-400 m-3 p-3"
+        className="w-full h-14 rounded-lg placeholder-gray-500 text-gray-500 outline-none flex-1 dark:text-orange-400 m-3 p-3"
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Search News"

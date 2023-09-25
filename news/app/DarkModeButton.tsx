@@ -27,7 +27,7 @@ const DarkModeButton = () => {
   // }
 
   return (
-    <div>
+    <div className="flex items-center justify-center flex-col mr-2">
       {currentTheme === "dark" ? (
         <SunIcon className="w-6 h-6" onClick={() => setTheme("light")} />
       ) : (
