@@ -1,19 +1,27 @@
-
-
-import React from 'react'
-
+import NewsList from "@/app/NewsList";
+import { categories } from "@/constants";
+import fetchNews from "@/lib/fetchNews";
+import React from "react";
 
 type Props = {
-    params: {category: Category}
-}
+  params: { category: Category };
+};
 
-const NewsCategory = ({params: {category}} : Props) => {
+const NewsCategory = async ({ params: { category } }: Props) => {
+  const news: NewsResponse = await fetchNews(category);
 
-    const news: newsResponse = await fetchNews(category);
-    
   return (
-    <div>NewsCategory</div>
-  )
-}
+    <div>
+      <h1 className="headerTitle">{category}</h1>
+      <NewsList news={news} />
+    </div>
+  );
+};
 
-export default NewsCategory
+export default NewsCategory;
+
+export async function generateStaticParams() {
+  return categories.map((category) => ({
+    category: category,
+  }));
+}
