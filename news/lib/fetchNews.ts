@@ -67,12 +67,10 @@ const fetchNews = async (
   const newsResponse = await res.json();
 
   // sort function
-
   const news = sortNewsByImage(newsResponse.data.myQuery);
 
   return news;
 };
 
 export default fetchNews;
-
 // stepzen import curl "http://api.mediastack.com/v1/news?access"

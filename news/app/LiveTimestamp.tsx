@@ -8,7 +8,8 @@ type Props = {
 
 const LiveTimestamp = ({time}: Props) => {
   return (
-    <TimeAgo date={time} />
+    // <TimeAgo date={time} />
+    <></>
   )
 }
 
