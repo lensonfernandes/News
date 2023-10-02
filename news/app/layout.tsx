@@ -23,7 +23,7 @@ export default function RootLayout({
           className={"bg-gray-100 text-zinc-900 dark:bg-zinc-900  dark:text-gray-100 transition-all duration-700"}
         >
           <Header />
-          <div className="w-100  flex justify-center">{children}</div>
+          <div className="w-100  flex  flex-wrap justify-center">{children}</div>
         </body>
       </Providers>
     </html>

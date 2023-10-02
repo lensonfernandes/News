@@ -15,9 +15,9 @@ const NavLinks = () => {
 
   return (
     <nav
-      className="grid grid-cols-4 md:grid-cols-7 text-xs md:text-sm gap-4 pb-10
+      className=" flex flex-wrap justify-around items-center text-xs md:text-sm  
    
-     mx-auto border-b px-48"
+     border-b w-full"
     >
       {categories.map((category) => (
         <NavLink

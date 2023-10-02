@@ -25,6 +25,7 @@ const Header = () => {
 
         {/* <div className="flex items-center justify-end space-x-2"></div>
       </div> */}
+      <hr />
       <NavLinks />
       <SearchBox />
     </header>

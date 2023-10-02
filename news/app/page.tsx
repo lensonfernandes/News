@@ -10,7 +10,7 @@ export default async function Home() {
     await fetchNews(categories.join(","));
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col md:flex-row flex-wrap items-center justify-between p-2 m-2">
       <NewsList news={news} />
     </main>
   );
